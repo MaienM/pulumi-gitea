@@ -1,0 +1,53 @@
+{
+  "template": "https://github.com/MaienM/pulumi-tf-provider-cookiecutter",
+  "commit": "1e550066cc142cbbda540749d679f04f64488a92",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "terraform_provider_name": "gitea",
+      "terraform_provider_org": "gitea",
+      "terraform_provider_source": "github.com/go-gitea/terraform-provider-gitea",
+      "terraform_provider_version_or_commit": "0.3.0",
+      "terraform_provider_module": "code.gitea.io/terraform-provider-gitea",
+      "terraform_provider_package_name": "gitea",
+      "terraform_sdk_version": "2",
+      "provider": "pulumi-gitea",
+      "provider_display_name": "Gitea",
+      "provider_github_organization": "MaienM",
+      "provider_publisher": "MaienM",
+      "provider_homepage": "https://github.com/MaienM/pulumi-gitea",
+      "provider_logoUrl": "https://raw.githubusercontent.com/MaienM/pulumi-gitea/main/docs/gitea.png",
+      "provider_description": "A Pulumi package for creating and managing Gitea resources",
+      "provider_category": "infrastructure",
+      "provider_download_url": "github://api.github.com/MaienM/pulumi-gitea",
+      "provider_javascript_package": "@maienm/pulumi-gitea",
+      "provider_dotnet_rootnamespace": "MaienM",
+      "provider_python_package": "pulumi_gitea",
+      "provider_java_base_package": "com.maienm",
+      "provider_mapping_strategy": "automatic",
+      "provider_naming_strategy": "singlelevel",
+      "go_version": "1.21.6",
+      "create_github_workflows": "yes",
+      "skip_go_mod_tidy": "no",
+      "skip_git_init": "yes",
+      "__pulumi_terraform_plugin_sdkv2_version": "v2.0.0-20240129205329-74776a5cd5f9",
+      "__pulumi_terraform_bridge_version": "v3.73.0",
+      "__pulumi_terraform_bridge_pf_version": "v0.26.0",
+      "__pulumi_sdk_version": "v3.104.2",
+      "__pulumi_ctl_version": "v0.0.46",
+      "__pulumi_java_version": "v0.9.9",
+      "__go_version_major": "1",
+      "__go_version_minor": "21",
+      "_jinja2_env_vars": {
+        "lstrip_blocks": true,
+        "trim_blocks": true
+      },
+      "_copy_without_render": [],
+      "_extensions": [
+        "local_extensions.LocalExtension"
+      ],
+      "_template": "https://github.com/MaienM/pulumi-tf-provider-cookiecutter"
+    }
+  },
+  "directory": null
+}
