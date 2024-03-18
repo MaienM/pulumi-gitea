@@ -41,7 +41,18 @@ const (
 	mainMod = "index" // the gitea module
 )
 
-var module_overrides = map[string]string{}
+var module_overrides = map[string]string{
+	// Avoid module name 'public' which is a reserved keyword in (at least) nodejs.
+	"Public": "PublicKey",
+	// Avoid naming clash between namespace Repository and class of the same name in java.
+	"Repository": "Repositories",
+}
+
+var name_overrides = map[string]string{
+	// Avoid same name for type and contained field for dotnet.
+	"Key": "DeploymentKey",
+	"Token": "AccessToken",
+}
 
 func convertName(tfname string) (module string, name string) {
 	tfNameItems := strings.Split(tfname, "_")
@@ -59,8 +70,11 @@ func convertName(tfname string) (module string, name string) {
 		}
 	}
 	contract.Assertf(!unicode.IsDigit(rune(module[0])), "Pulumi namespace must not start with a digit: %s", name)
-	contract.Assertf(!unicode.IsDigit(rune(name[0])), "Pulumi name must not start with a digit: %s", name)
 	name = strcase.ToPascal(name)
+	if v, ok := name_overrides[name]; ok {
+		name = v
+	}
+	contract.Assertf(!unicode.IsDigit(rune(name[0])), "Pulumi name must not start with a digit: %s", name)
 	return
 }
 

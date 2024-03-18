@@ -1,7 +1,7 @@
 {
   "template": "https://github.com/MaienM/pulumi-tf-provider-cookiecutter",
-  "commit": "1e550066cc142cbbda540749d679f04f64488a92",
-  "checkout": null,
+  "commit": "e330efc2f832839252dc22a4fd821d3ccb6452f5",
+  "checkout": "feature/name-mapping",
   "context": {
     "cookiecutter": {
       "terraform_provider_name": "gitea",
