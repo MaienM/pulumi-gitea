@@ -1,7 +1,7 @@
 {
-  "template": "https://github.com/MaienM/pulumi-tf-provider-cookiecutter",
-  "commit": "e330efc2f832839252dc22a4fd821d3ccb6452f5",
-  "checkout": "feature/name-mapping",
+  "template": "https://github.com/tmeckel/pulumi-tf-provider-cookiecutter",
+  "commit": "a80a5489276f2358e0d1d48b9e0c6c068efa436f",
+  "checkout": null,
   "context": {
     "cookiecutter": {
       "terraform_provider_name": "gitea",
@@ -46,7 +46,7 @@
       "_extensions": [
         "local_extensions.LocalExtension"
       ],
-      "_template": "https://github.com/MaienM/pulumi-tf-provider-cookiecutter"
+      "_template": "https://github.com/tmeckel/pulumi-tf-provider-cookiecutter"
     }
   },
   "directory": null
