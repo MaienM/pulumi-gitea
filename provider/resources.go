@@ -215,6 +215,9 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			RootNamespace: "MaienM",
+			Namespaces: map[string]string{
+				"gitea": "PulumiGitea",
+			},
 
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
