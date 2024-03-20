@@ -1,1 +1,123 @@
-{}
+{
+    "renames": {
+        "resources": {
+            "gitea:Git/hook:Hook": "gitea_git_hook",
+            "gitea:Oauth2/app:App": "gitea_oauth2_app",
+            "gitea:PublicKey/deploymentKey:DeploymentKey": "gitea_public_key",
+            "gitea:Repositories/deploymentKey:DeploymentKey": "gitea_repository_key",
+            "gitea:index/accessToken:AccessToken": "gitea_token",
+            "gitea:index/fork:Fork": "gitea_fork",
+            "gitea:index/org:Org": "gitea_org",
+            "gitea:index/repository:Repository": "gitea_repository",
+            "gitea:index/team:Team": "gitea_team",
+            "gitea:index/user:User": "gitea_user"
+        },
+        "functions": {
+            "gitea:index/getOrg:getOrg": "gitea_org",
+            "gitea:index/getRepo:getRepo": "gitea_repo",
+            "gitea:index/getUser:getUser": "gitea_user"
+        },
+        "renamedProperties": {
+            "gitea:Oauth2/app:App": {
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "confidentialClient": "confidential_client",
+                "redirectUris": "redirect_uris"
+            },
+            "gitea:PublicKey/deploymentKey:DeploymentKey": {
+                "readOnly": "read_only"
+            },
+            "gitea:Repositories/deploymentKey:DeploymentKey": {
+                "readOnly": "read_only"
+            },
+            "gitea:index/accessToken:AccessToken": {
+                "lastEight": "last_eight"
+            },
+            "gitea:index/getOrg:getOrg": {
+                "avatarUrl": "avatar_url",
+                "fullName": "full_name"
+            },
+            "gitea:index/getRepo:getRepo": {
+                "cloneUrl": "clone_url",
+                "defaultBranch": "default_branch",
+                "fullName": "full_name",
+                "htmlUrl": "html_url",
+                "openIssueCount": "open_issue_count",
+                "permissionAdmin": "permission_admin",
+                "permissionPull": "permission_pull",
+                "permissionPush": "permission_push",
+                "sshUrl": "ssh_url"
+            },
+            "gitea:index/getUser:getUser": {
+                "avatarUrl": "avatar_url",
+                "fullName": "full_name",
+                "isAdmin": "is_admin",
+                "lastLogin": "last_login"
+            },
+            "gitea:index/org:Org": {
+                "avatarUrl": "avatar_url",
+                "fullName": "full_name",
+                "repoAdminChangeTeamAccess": "repo_admin_change_team_access"
+            },
+            "gitea:index/repository:Repository": {
+                "allowManualMerge": "allow_manual_merge",
+                "allowMergeCommits": "allow_merge_commits",
+                "allowRebase": "allow_rebase",
+                "allowRebaseExplicit": "allow_rebase_explicit",
+                "allowSquashMerge": "allow_squash_merge",
+                "autoInit": "auto_init",
+                "autodetectManualMerge": "autodetect_manual_merge",
+                "cloneUrl": "clone_url",
+                "defaultBranch": "default_branch",
+                "hasIssues": "has_issues",
+                "hasProjects": "has_projects",
+                "hasPullRequests": "has_pull_requests",
+                "hasWiki": "has_wiki",
+                "htmlUrl": "html_url",
+                "ignoreWhitespaceConflicts": "ignore_whitespace_conflicts",
+                "issueLabels": "issue_labels",
+                "migrationCloneAddress": "migration_clone_address",
+                "migrationCloneAddresse": "migration_clone_addresse",
+                "migrationIssueLabels": "migration_issue_labels",
+                "migrationLfs": "migration_lfs",
+                "migrationLfsEndpoint": "migration_lfs_endpoint",
+                "migrationMilestones": "migration_milestones",
+                "migrationMirrorInterval": "migration_mirror_interval",
+                "migrationReleases": "migration_releases",
+                "migrationService": "migration_service",
+                "migrationServiceAuthPassword": "migration_service_auth_password",
+                "migrationServiceAuthToken": "migration_service_auth_token",
+                "migrationServiceAuthUsername": "migration_service_auth_username",
+                "permissionAdmin": "permission_admin",
+                "permissionPull": "permission_pull",
+                "permissionPush": "permission_push",
+                "repoTemplate": "repo_template",
+                "sshUrl": "ssh_url"
+            },
+            "gitea:index/team:Team": {
+                "canCreateRepos": "can_create_repos",
+                "includeAllRepositories": "include_all_repositories"
+            },
+            "gitea:index/user:User": {
+                "allowCreateOrganization": "allow_create_organization",
+                "allowGitHook": "allow_git_hook",
+                "allowImportLocal": "allow_import_local",
+                "forcePasswordChange": "force_password_change",
+                "fullName": "full_name",
+                "loginName": "login_name",
+                "maxRepoCreation": "max_repo_creation",
+                "mustChangePassword": "must_change_password",
+                "prohibitLogin": "prohibit_login",
+                "sendNotification": "send_notification"
+            },
+            "gitea:index:Provider": {
+                "baseUrl": "base_url",
+                "cacertFile": "cacert_file"
+            }
+        },
+        "renamedConfigProperties": {
+            "baseUrl": "base_url",
+            "cacertFile": "cacert_file"
+        }
+    }
+}
