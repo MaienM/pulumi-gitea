@@ -19,11 +19,10 @@ env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   PUBLISH_NPM: true
   NPM_REGISTRY_URL: https://registry.npmjs.org
-  # IF YOU NEED TO PUBLISH A NUGET PACKAGE THEN ENSURE AN NUGET_PUBLISH_KEY
-  # SECRET IS SET AND PUBLISH_NUGET: TRUE. IF YOU WANT TO PUBLISH TO AN ALTERNATIVE
-  # NPM REGISTRY THEN ENSURE THE NPM_REGISTRY_URL IS CHANGED
-  NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
-  NUGET_FEED_URL: https://api.nuget.org/v3/index.json
+  # IF YOU NEED TO PUBLISH A NUGET PACKAGE THEN ENSURE AN NUGET_PUBLISH_KEY SECRET IS SET AND PUBLISH_NUGET: TRUE
+  # IF YOU WANT TO PUBLISH TO AN ALTERNATIVE NPM REGISTRY THEN ENSURE THE NPM_REGISTRY_URL IS CHANGED
+  NUGET_PUBLISH_KEY: ${{ secrets.GITHUB_TOKEN }}
+  NUGET_FEED_URL: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
   PUBLISH_NUGET: true
   # IF YOU NEED TO PUBLISH A PYPI PACKAGE YOU NEED TO PROVIDE CREDENTIALS AND SET PUBLISH_PYPI: TRUE
   # THE EASIEST WAY TO PROVIDE CREDENTIALS IS TO USE A TRUSTED PUBLISHER (SEE https://docs.pypi.org/trusted-publishers/).
@@ -81,6 +80,8 @@ jobs:
     permissions:
       # For pypi trusted publishers.
       id-token: write
+      # For nuget on GH packages.
+      packages: write
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
