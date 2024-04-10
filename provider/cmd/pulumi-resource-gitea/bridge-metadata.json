@@ -1,14 +1,14 @@
 {
     "renames": {
         "resources": {
-            "gitea:Git/hook:Hook": "gitea_git_hook",
-            "gitea:Oauth2/app:App": "gitea_oauth2_app",
-            "gitea:PublicKey/deploymentKey:DeploymentKey": "gitea_public_key",
-            "gitea:Repositories/deploymentKey:DeploymentKey": "gitea_repository_key",
             "gitea:index/accessToken:AccessToken": "gitea_token",
             "gitea:index/fork:Fork": "gitea_fork",
+            "gitea:index/gitHook:GitHook": "gitea_git_hook",
+            "gitea:index/oauth2App:Oauth2App": "gitea_oauth2_app",
             "gitea:index/org:Org": "gitea_org",
+            "gitea:index/publicKey:PublicKey": "gitea_public_key",
             "gitea:index/repository:Repository": "gitea_repository",
+            "gitea:index/repositoryKey:RepositoryKey": "gitea_repository_key",
             "gitea:index/team:Team": "gitea_team",
             "gitea:index/user:User": "gitea_user"
         },
@@ -18,18 +18,6 @@
             "gitea:index/getUser:getUser": "gitea_user"
         },
         "renamedProperties": {
-            "gitea:Oauth2/app:App": {
-                "clientId": "client_id",
-                "clientSecret": "client_secret",
-                "confidentialClient": "confidential_client",
-                "redirectUris": "redirect_uris"
-            },
-            "gitea:PublicKey/deploymentKey:DeploymentKey": {
-                "readOnly": "read_only"
-            },
-            "gitea:Repositories/deploymentKey:DeploymentKey": {
-                "readOnly": "read_only"
-            },
             "gitea:index/accessToken:AccessToken": {
                 "lastEight": "last_eight"
             },
@@ -54,10 +42,19 @@
                 "isAdmin": "is_admin",
                 "lastLogin": "last_login"
             },
+            "gitea:index/oauth2App:Oauth2App": {
+                "clientId": "client_id",
+                "clientSecret": "client_secret",
+                "confidentialClient": "confidential_client",
+                "redirectUris": "redirect_uris"
+            },
             "gitea:index/org:Org": {
                 "avatarUrl": "avatar_url",
                 "fullName": "full_name",
                 "repoAdminChangeTeamAccess": "repo_admin_change_team_access"
+            },
+            "gitea:index/publicKey:PublicKey": {
+                "readOnly": "read_only"
             },
             "gitea:index/repository:Repository": {
                 "allowManualMerge": "allow_manual_merge",
@@ -93,6 +90,9 @@
                 "permissionPush": "permission_push",
                 "repoTemplate": "repo_template",
                 "sshUrl": "ssh_url"
+            },
+            "gitea:index/repositoryKey:RepositoryKey": {
+                "readOnly": "read_only"
             },
             "gitea:index/team:Team": {
                 "canCreateRepos": "can_create_repos",

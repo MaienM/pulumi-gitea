@@ -21,15 +21,15 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/ettle/strcase"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
-	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"code.gitea.io/terraform-provider-gitea/gitea"
 	"github.com/MaienM/pulumi-gitea/provider/pkg/version"
+	"github.com/ettle/strcase"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 //go:embed cmd/pulumi-resource-gitea/bridge-metadata.json
@@ -41,16 +41,8 @@ const (
 	mainMod = "index" // the gitea module
 )
 
-var module_overrides = map[string]string{
-	// Avoid module name 'public' which is a reserved keyword in (at least) nodejs.
-	"Public": "PublicKey",
-	// Avoid naming clash between namespace Repository and class of the same name in java.
-	"Repository": "Repositories",
-}
-
 var name_overrides = map[string]string{
 	// Avoid same name for type and contained field for dotnet.
-	"Key": "DeploymentKey",
 	"Token": "AccessToken",
 }
 
@@ -58,18 +50,8 @@ func convertName(tfname string) (module string, name string) {
 	tfNameItems := strings.Split(tfname, "_")
 	contract.Assertf(len(tfNameItems) >= 2, "Invalid snake case name %s", tfname)
 	contract.Assertf(tfNameItems[0] == "gitea", "Invalid snake case name %s. Does not start with gitea", tfname)
-	if len(tfNameItems) == 2 {
-		module = mainMod
-		name = tfNameItems[1]
-	} else {
-		module = strcase.ToPascal(strings.Join(tfNameItems[1:len(tfNameItems)-1], "_"))
-		name = tfNameItems[len(tfNameItems)-1]
-
-		if v, ok := module_overrides[module]; ok {
-			module = v
-		}
-	}
-	contract.Assertf(!unicode.IsDigit(rune(module[0])), "Pulumi namespace must not start with a digit: %s", name)
+	module = mainMod
+	name = strings.Join(tfNameItems[1:], "_")
 	name = strcase.ToPascal(name)
 	if v, ok := name_overrides[name]; ok {
 		name = v
@@ -140,7 +122,7 @@ func Provider() tfbridge.ProviderInfo {
 		// category/cloud tag helps with categorizing the package in the Pulumi Registry.
 		// For all available categories, see `Keywords` in
 		// https://www.pulumi.com/docs/guides/pulumi-packages/schema/#package.
-		Keywords:   []string{
+		Keywords: []string{
 			"pulumi",
 			"gitea",
 			"category/infrastructure",
@@ -150,12 +132,12 @@ func Provider() tfbridge.ProviderInfo {
 		Repository: "https://github.com/MaienM/pulumi-gitea",
 		// The GitHub Org for the provider - defaults to `terraform-providers`. Note that this
 		// should match the TF provider module's require directive, not any replace directives.
-		Version:   version.Version,
-		GitHubOrg: "gitea",
-		MetadataInfo: tfbridge.NewProviderMetadata(bridgeMetadata),
+		Version:           version.Version,
+		GitHubOrg:         "gitea",
+		MetadataInfo:      tfbridge.NewProviderMetadata(bridgeMetadata),
 		TFProviderVersion: "0.3.0",
-		UpstreamRepoPath: "./upstream",
-		Config:    map[string]*tfbridge.SchemaInfo{
+		UpstreamRepoPath:  "./upstream",
+		Config:            map[string]*tfbridge.SchemaInfo{
 			// Add any required configuration here, or remove the example below if
 			// no additional points are required.
 			// "region": {
@@ -171,7 +153,7 @@ func Provider() tfbridge.ProviderInfo {
 			//
 			// "aws_iam_role": {
 			//   Tok: makeResource(mainMod, "aws_iam_role"),
-		  // },
+			// },
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			// Map each data source in the Terraform provider to a Pulumi function.

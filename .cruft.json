@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/tmeckel/pulumi-tf-provider-cookiecutter",
-  "commit": "a80a5489276f2358e0d1d48b9e0c6c068efa436f",
+  "commit": "fa14c50872ea1a21fb494bf5549f69f036ea41f7",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -25,7 +25,7 @@
       "provider_python_package": "pulumi_gitea",
       "provider_java_base_package": "com.maienm",
       "provider_mapping_strategy": "automatic",
-      "provider_naming_strategy": "singlelevel",
+      "provider_naming_strategy": "flat",
       "go_version": "1.21.6",
       "create_github_workflows": "yes",
       "skip_go_mod_tidy": "no",
@@ -35,7 +35,7 @@
       "__pulumi_terraform_bridge_pf_version": "v0.26.0",
       "__pulumi_sdk_version": "v3.104.2",
       "__pulumi_ctl_version": "v0.0.46",
-      "__pulumi_java_version": "v0.9.9",
+      "__pulumi_java_version": "v0.10.0",
       "__go_version_major": "1",
       "__go_version_minor": "21",
       "_jinja2_env_vars": {
